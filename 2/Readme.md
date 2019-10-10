@@ -13,4 +13,4 @@ var maker = L.marker([34.225028,108.942963])
 ```
 
 ##示例图
-![示例图](https://github.com/mutou8bit/leaflet-study/tree/master/2/image/map.png)
+![示例图](https://github.com/mutou8bit/leaflet-study/blob/master/2/image/map.png)
