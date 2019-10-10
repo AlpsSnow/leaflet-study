@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="content-language" content="zh">
+<title>Leaflet study 2 </title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js"></script>
+
+<style>
+html, body  {
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+#map {
+	width: 100%;
+	height: 100%;
+}
+</style>
+
+</head>
+<body>
+<div id="map"></div>
+<script>
+
+//设置图层的中心点经纬度和地图放大倍数。[维度，经度]
+var map = L.map('map').setView([34.225028,108.942963], 14); //西安小寨赛格国际
+
+//引入OSM的图层到map对象。
+var mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+L.tileLayer(
+	'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+	{
+		attribution: 'Map data &copy; ' + mapLink,
+		maxZoom: 18
+	}
+).addTo(map);
+
+    //添加一个标记（marker）
+var maker = L.marker([34.225028,108.942963])
+    //添加Popup事件。当鼠标点击时候显示“Hello! Leaflet! I'm here!”
+    .bindPopup("<div style="+'"color:#0000FF"'+"><h1>Hello! Leaflet! I'm here!</h1></div>")
+    .addTo(map);
+
+</script>
+</body>
+</html>
