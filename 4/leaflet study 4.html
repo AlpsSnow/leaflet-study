@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="content-language" content="zh">
+<title>Leaflet study 4 </title>
+
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="./dist/leaflet.awesome-markers.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
+
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js"></script>
+<script src="./dist/leaflet.awesome-markers.js"></script>
+<script src="./gps-info.js"></script>
+
+<style>
+html, body  {
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+#map {
+	width: 100%;
+	height: 100%;
+}
+</style>
+
+</head>
+<body>
+<div id="map"></div>
+<script>
+
+//设置图层的中心点经纬度和地图放大倍数。[维度，经度]
+var map = L.map('map').setView([34.225028,108.942963], 14); //西安小寨赛格国际
+
+//引入OSM的图层到map对象。
+var mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+L.tileLayer(
+	'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+	{
+		attribution: 'Map data &copy; ' + mapLink,
+		maxZoom: 18
+	}
+).addTo(map);
+
+//从gps-info.js读取gps数据，标记到图层上
+for (var i = 0; i < gpsPoints.length; i++) {
+	var a = gpsPoints[i];
+	var thumbnailname = './resize/' + a[0].replace('.jpg','.thumbnail.jpg')
+	var sucontents = '第'+ (i+1) + '个足迹<br>' +'时间：'+ a[1] +'<br>照片：./photo/'+a[0] +'<br><img src="'+ thumbnailname +'" width="300" height="300">';
+	//添加标记（marker）
+	var marker = L.marker([a[3], a[2]], { icon: L.AwesomeMarkers.icon({ icon: 'camera', prefix: 'fa', markerColor: 'blue', spin:true }) })
+	//添加Popup事件。当鼠标点击时候显示。
+	marker.bindPopup(sucontents);
+	marker.addTo(map);
+}
+	
+</script>
+</body>
+</html>

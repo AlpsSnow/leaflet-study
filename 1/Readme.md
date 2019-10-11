@@ -2,7 +2,7 @@
 这是一个非常简单例子，用来展示leaflet的基本使用方法。 
 Basic usage of leaflet.
 
-##使用步骤
+## 使用步骤
 > 1. 引入leaflet的css和js
 ```
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
