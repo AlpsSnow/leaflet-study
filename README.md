@@ -7,4 +7,7 @@ leaflet study notes. leaflet学习笔记。
 
 #### [3.根据gps数据批量添加标记，并给每个标记的Popup事件添加一个缩略图](./3/Readme.md )
 
-#### [4.自定义标记符号 (使用Leaflet.awesome-markers库)](./3/Readme.md )
+#### [4.自定义标记符号 (使用Leaflet.awesome-markers库)](./3/Readme.md )  
+
+### 示例图
+![示例图](./image/example.gif)
