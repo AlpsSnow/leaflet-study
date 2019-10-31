@@ -12,10 +12,5 @@ var maker = L.marker([34.225028,108.942963])
     .addTo(map);
 ```
 
-<<<<<<< HEAD
 ## 示例图
 ![示例图](./image/map.png)
-=======
-##示例图
-![示例图](https://github.com/mutou8bit/leaflet-study/blob/master/2/image/map.png)
->>>>>>> e808efc61b3788bf468e4abcc51d70790d634a6e
